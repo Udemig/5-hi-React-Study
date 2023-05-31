@@ -31,6 +31,7 @@ class Sayac extends Component {
     this.setState({ count: this.state.count + 1 });
   };
 
+  // arayüzü  ekrana basar
   render() {
     console.log('render çalştı');
     return (
