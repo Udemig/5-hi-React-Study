@@ -1,0 +1,42 @@
+{
+  "todos": [
+    {
+      "id": 1685649507676,
+      "title": "Projeyi Tamamla",
+      "date": "6/1/2023, 10:58:27 PM",
+      "isDone": false
+    },
+    {
+      "id": 1685649520674,
+      "title": "Json Server deneme yap",
+      "date": "6/1/2023, 10:58:40 PM",
+      "isDone": true
+    },
+    {
+      "id": 1685651245092,
+      "title": "Sil butonu ekle",
+      "date": "6/1/2023, 11:27:25 PM",
+      "isDone": false
+    },
+    {
+      "id": 1685651276049,
+      "title": "düzenle butonu güncel ",
+      "date": "6/1/2023, 11:51:43 PM",
+      "isDone": true
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Bilal"
+    },
+    {
+      "id": 2,
+      "name": "Ahmet"
+    },
+    {
+      "id": 3,
+      "name": "İnci"
+    }
+  ]
+}
