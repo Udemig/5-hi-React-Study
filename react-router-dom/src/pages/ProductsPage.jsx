@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from '../components/Card';
+import { Link } from 'react-router-dom';
 
 const ProductsPage = () => {
   const [books, setBooks] = useState(null);
-
+  console.log(window.location);
   useEffect(() => {
     axios
       .get('http://localhost:3060/books')
@@ -26,7 +27,13 @@ const ProductsPage = () => {
       <div className="cards-container">
         {/* kitaplar dizisindeki herbir eleman için ekran kart basma */}
         {books.map((book) => (
-          <Card key={book.id} data={book} />
+          // link etiketiyle yöndlenditereciğimiz sayfaya veri göderme
+          <Link
+            to={`/ürün-detay/${book.id}`}
+            state={{ uzunluk: books.length }}
+          >
+            <Card key={book.id} data={book} />
+          </Link>
         ))}
       </div>
     </div>

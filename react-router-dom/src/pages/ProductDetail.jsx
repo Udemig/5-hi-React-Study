@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import {
+  useParams,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 
 const ProductDetail = () => {
   const [detail, setDetail] = useState();
@@ -8,6 +12,8 @@ const ProductDetail = () => {
   const { productId } = useParams();
   // useNavigate kurlumu
   const navigate = useNavigate();
+  //link etiketiyle gönderilen gelen veriyi alma
+  const location = useLocation();
 
   useEffect(() => {
     axios
@@ -37,6 +43,10 @@ const ProductDetail = () => {
         <p>{detail.description}</p>
         <p>Sayfa Sayısı: {detail.page}</p>
         <p>Yıl: {detail.year}</p>
+        <p>
+          Toplamda {location.state.uzunluk} üründen bir
+          tanesi
+        </p>
       </div>
     </div>
   );

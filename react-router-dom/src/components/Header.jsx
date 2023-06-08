@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -8,13 +8,30 @@ const Header = () => {
       <div className="d-flex gap-4">
         {/* a etiketleri yerine Link  */}
         {/* href yerine to kullanılır */}
-        <Link className="text-light" to={'/'}>
+        <NavLink
+          // routerdom sayfaya geçiş yapılıyor mu ve kullanıcı şuan sayfada mı bilgelrini veren iki değeri aldı
+          className={({ isActive, isPending }) =>
+            isPending ? 'geçiş' : isActive && 'aktif'
+          }
+          to={'/'}
+        >
           Anasayfa
-        </Link>
+        </NavLink>
 
-        <Link className="text-light" to={'/ürünler'}>
+        <NavLink className="text-light" to={'/ürünler'}>
           Ürünler
-        </Link>
+        </NavLink>
+
+        <NavLink className="text-light" to={'/hakkımızda'}>
+          Hakkımızda
+        </NavLink>
+
+        <NavLink
+          className="text-light"
+          to={'/arabalar/içten-yanma'}
+        >
+          İçten yanma
+        </NavLink>
       </div>
     </header>
   );
