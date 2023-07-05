@@ -31,6 +31,8 @@
 
 5. Subscribe: Redux, uygulama durumunu merkezi bir depoda (store) saklar. Bileşenlerin bu duruma erişmesi gerektiğinde useSelector kancası kullanılır.
 
+- Not: Eğerki projede API kullanılırken state yönetimi olarak Redux kullanılıyorsa. İkisini mutlaka Senkron tutmalıyız.
+
 # Kurulum
 
 - redux react-redux paketleri indirilir

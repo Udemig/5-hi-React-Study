@@ -22,12 +22,11 @@ const initialState = {
   sayi: 0,
 };
 
-// Reducer içerisnden ne return edilirse store'un son değeri olur
+// Reducer'ın içerisnden ne return edilirse store'un son değeri olur
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     // ekleme aksiyonu dispatch edildiği anda çalışır
     case 'ADD_TODO':
-      console.log('EKLEME ÇALIŞTI', action);
       return {
         ...state,
         todos: [...state.todos, action.payload],
@@ -54,19 +53,33 @@ const todoReducer = (state = initialState, action) => {
     // güncelleme eylemi gerçekleşince
     // store'un  nasıl etkilenecek karar veriyoruz
     case 'UPDATE_TODO':
-      console.log(action.payload);
       // dizinin bir kopyasını alma
       const cloneTodos = state.todos;
+
       // düzenlenecek elmanın dizideki sırasını bulma
       const i = cloneTodos.findIndex(
         (item) => item.id === action.payload.id
       );
       // elemanın dizideki sıranı gidip yeni bir değer atadık
       cloneTodos[i] = action.payload;
-
       return {
         ...state,
         todos: cloneTodos,
+      };
+
+    // store'u temizleme
+    case 'CLEAR':
+      return {
+        ...state,
+        todos: [],
+      };
+
+    // api den gelen cevabı store'a aktar
+    case 'SET_TODOS':
+      return {
+        ...state,
+        todos: action.payload,
+        sayi: action.payload.length,
       };
 
     // case'lerden aksionlardan hiçibiri çalışmaz o zaman state'i olduğu gibi bırak

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -7,12 +8,18 @@ const SingleTodo = ({ todo }) => {
 
   // sil butonuna tıklanınca çalışır
   const handleDelete = () => {
-    // silme işlemi gerçekleştirmek istediğimizi
-    // belirten eylemi reducera sevk ettik
-    dispatch({
-      type: 'DELETE_TODO',
-      payload: todo.id,
-    });
+    // todo'yu api den silme
+    axios
+      .delete(`http://localhost:3060/todos/${todo.id}`)
+      .then(() => {
+        // todo'yu store'dan kaldırma
+        // silme işlemi gerçekleştirmek istediğimizi
+        // belirten eylemi reducera sevk ettik
+        dispatch({
+          type: 'DELETE_TODO',
+          payload: todo.id,
+        });
+      });
   };
 
   //   tamanla butonuna tıklanınca
@@ -21,11 +28,16 @@ const SingleTodo = ({ todo }) => {
     // elemanı güncelleme
     const updatedTodo = { ...todo, isDone: !todo.isDone };
 
-    // güncel hali reducer'a gönderme
-    dispatch({
-      type: 'UPDATE_TODO',
-      payload: updatedTodo,
-    });
+    // api' daki halini güncelleme
+    axios
+      .put(`http://localhost:3060/todos/${todo.id}`, updatedTodo)
+      .then(() => {
+        // güncel hali reducer'a gönderme
+        dispatch({
+          type: 'UPDATE_TODO',
+          payload: updatedTodo,
+        });
+      });
   };
 
   return (
