@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './counterSlice';
+import crudReducer from './crudSlice';
 
 export default configureStore({
-  reducer: { counterReducer },
+  reducer: { counterReducer, crudReducer },
 });
 
 // configure store parametre olrak

@@ -23,7 +23,7 @@ const Counter = () => {
         </Button>
         <Button
           variant="secondary"
-          onClick={() => dispatch(setCount(100))}
+          onClick={() => dispatch(setCount(0))}
         >
           Sıfırla
         </Button>

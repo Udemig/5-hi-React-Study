@@ -16,12 +16,11 @@
 
 body {
   margin: 0;
-  display: grid;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
   background: #242424 !important;
   color: white !important;
+  overflow-x: hidden;
 }
 
 h1 {

@@ -19,11 +19,10 @@ const initialState = {
 };
 
 const counterSlice = createSlice({
-  name: 'counterSlice',
+  name: 'count',
   initialState,
   reducers: {
     increase: (state) => {
-      console.log(state);
       state.count += 1;
     },
     decrease: (state) => {
